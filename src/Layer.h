@@ -28,7 +28,16 @@ public:
 	
     virtual void init();
     virtual void backpropagation(const MatrixFloat &mIn,const MatrixFloat &mGradientOut, MatrixFloat &mGradientIn)=0;
-	
+	virtual std::tuple<Index,Index,Index> getOutputDims() const { return std::make_tuple(0,0,0); }
+    Index getOutputRows() const {
+        return std::get<0>(getOutputDims());
+    }
+    Index getOutputCols() const {
+        return std::get<1>(getOutputDims());
+    }
+    Index getOutputChannels() const {
+        return std::get<2>(getOutputDims());
+    }
 	void set_train_mode(bool bTrainMode); //set to true to train, to false to test
 
     void set_weight_initializer(const std::string& _sWeightInitializer);

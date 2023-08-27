@@ -21,7 +21,7 @@ public:
 	Index output_size() const;
 
     virtual Layer* clone() const override;
-
+    std::tuple<Index,Index,Index> getOutputDims() const override { return {_iOutputSize, 1, 1}; }
     virtual void forward(const MatrixFloat& mIn, MatrixFloat &mOut) override;
 
     virtual void init() override;

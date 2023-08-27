@@ -19,6 +19,7 @@ public:
 
     virtual Layer* clone() const override;
     virtual void init() override;
+    std::tuple<Index,Index,Index> getOutputDims() const override { return {_iNbRows, _iNbCols, _iNbChannels}; }
 
 	void get_params(Index & iRows, Index & iCols, Index & iChannels) const;
 

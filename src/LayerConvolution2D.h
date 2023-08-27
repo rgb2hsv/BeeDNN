@@ -21,6 +21,7 @@ public:
     virtual ~LayerConvolution2D() override;
 
 	void get_params(Index& iInRows, Index& iInCols,Index& iInChannels, Index& iKernelRows, Index& iKernelCols,Index& iOutChannels) const;
+	std::tuple<Index,Index,Index> getOutputDims() const override { return {_iOutRows, _iOutCols, _iOutChannels}; }
 
     virtual Layer* clone() const override;
 

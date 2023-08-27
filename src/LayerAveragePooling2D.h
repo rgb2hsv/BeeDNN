@@ -18,7 +18,7 @@ public:
     virtual ~LayerAveragePooling2D() override;
 
 	void get_params(Index& iInRows, Index& iInCols, Index& iInChannels, Index& iRowFactor, Index& iColFactor) const;
-
+	std::tuple<Index,Index,Index> getOutputDims() const override { return {_iOutRows, _iOutCols, _iInChannels}; }
     virtual Layer* clone() const override;
 
     virtual void forward(const MatrixFloat& mIn, MatrixFloat &mOut) override;
